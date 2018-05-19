@@ -1,11 +1,62 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      UsersCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: UsersCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /Users: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/Users-20180519152243.zip
+            description: 'Handler for calls to resource path : /Users/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: hQ1eDLEbLAv7MxFzjiaC++GeI4i0Bx2athrtFmuNlQc=
+            memorySize: '128'
+            modified: '2018-05-19T19:23:46.359+0000'
+            name: Users
+            runtime: nodejs6.10
+            timeout: '3'
+            version: i32l.jR.Lx54wurI8aas3qu2qCt0akX8
+          '/Users/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/Users-20180519152243.zip
+            description: 'Handler for calls to resource path : /Users/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: hQ1eDLEbLAv7MxFzjiaC++GeI4i0Bx2athrtFmuNlQc=
+            memorySize: '128'
+            modified: '2018-05-19T19:23:46.359+0000'
+            name: Users
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 68kQHezEExu8RKKFCMlS_GFSlQ8EAxPQ
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              Email: S
+              PhoneNumber: S
+              Time: N
+              UserID: N
+              UserName: S
+            hashKeyName: UserID
+            hashKeyType: N
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-Users
+            tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
@@ -27,43 +78,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-  database: !com.amazonaws.mobilehub.v0.Database 
-    components:
-      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
-        tables:
-          - !com.amazonaws.mobilehub.v0.NoSQLTable 
-            attributes:
-              UserName: S
-              Email: S
-              PhoneNumber: S
-              Time: N
-            hashKeyName: UserID
-            hashKeyType: N
-            rangeKeyName: ''
-            rangeKeyType: ''
-            tableName: ___DYNAMIC_PREFIX___-Users
-            tablePrivacy: public
-            indexes: []
-  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
-    components:
-      UsersCRUD: !com.amazonaws.mobilehub.v0.API 
-        attributes:
-          name: UsersCRUD
-          requires-signin: true
-        paths:
-          /Users: !com.amazonaws.mobilehub.v0.Function 
-            name: Users
-            codeFilename: uploads/Users.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
-          '/Users/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            name: Users
-            codeFilename: uploads/Users.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
 name: Disconnect
 region: us-east-1
