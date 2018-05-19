@@ -4,6 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 //import aws_exports from './aws-exports';
 import Timer from './Timer'
 import LeaderBoard from './LeaderBoard'
+import Footer from './footer';
 
 
 export default class App extends React.Component {
@@ -14,9 +15,10 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View />
         {this.state.go ? <Timer onConnect={this.handleConnect}/>
         : <Button title='Disconnect' onPress={this.handleDisconnect}></Button> }
-        <LeaderBoard/>
+        <Footer />
       </View>
     );
   }
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f1ea40',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
 });
 
