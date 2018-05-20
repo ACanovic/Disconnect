@@ -56,7 +56,7 @@ export default class Timer extends React.Component {
                 {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
             </Text>
             <Button onPress={this.props.navigation.getParam('onConnect')} title='Connect'/>
-            <Footer toBadges={navigate('Badges')} toBoard={navigate('Board')} navigate={this.props.navigate}/>
+            <Footer toBadges={() => navigate('Badges')} toBoard={() => navigate('Board')} navigate={this.props.navigate}/>
             </View>
         )
     }
