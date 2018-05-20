@@ -2,27 +2,28 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
 
 export default function Footer() {
-	
+
 	
 
 	
 	return (
 		<View style={styles.container}>
 			<View style={{width: '50%', flex:1}}>
-				<Button
-				  title="baddges"
-				  color="#841584"
-				  accessibilityLabel="Learn more about this purple button"
+
+				<Image 
+				style={{width: 75, height: 85, margin: 20}} 
+				source={require('./images/basic_badge.png')} 
 				/>
+			</View>
+			<View>
+
 			</View>
 	        
 	        <View style={{width: '50%', flex: 1}}>
-	        	<Button
-				  title="Leader"
-				  color="green"
-				  accessibilityLabel="Learn more about this purple button"
+	        	<Image 
+				style={{width: 80, height: 90, margin: 20, alignSelf: 'flex-end'}} 
+				source={require('./images/firstplace.png')} 
 				/>
-	        	
 	        </View>
 	        
 	    </View>
@@ -32,9 +33,7 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
     width: '100%',
-    backgroundColor: 'blue',
     alignItems: 'center',
     flexDirection: 'row'
   },
