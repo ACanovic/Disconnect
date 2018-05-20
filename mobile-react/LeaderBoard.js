@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 
 export default class LeaderBoard extends React.Component {
     render() {
@@ -9,7 +9,10 @@ export default class LeaderBoard extends React.Component {
 	            <Text style={styles.textStyle}>YOU: 133/255</Text>
 	            <FlatList style={styles.textStyle}
 		          data={[
-		            {rank: 1, key: 'Devin'},
+		            {rank: <Image 
+				style={{width: 80, height: 90, margin: 20, alignSelf: 'flex-end'}} 
+				source={require('./images/firstplace.png')} 
+				/>, key: 'Devin'},
 		            {rank: 2, key: 'Jackson'},
 		            {rank: 3, key: 'James'},
 		            {rank: 4, key: 'Joel'},
