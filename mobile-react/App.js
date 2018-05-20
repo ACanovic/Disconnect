@@ -5,6 +5,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import Timer from './Timer'
 import LeaderBoard from './LeaderBoard'
 import Footer from './footer';
+import Badge from './badges';
 
 
 export default class App extends React.Component {
