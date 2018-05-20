@@ -1,6 +1,6 @@
 # Disconnect
 
-Application to encourage disabling mobile connectivity with points, achievements and a leaderboard system. Users gain points the longer they stay offline, earning badges and a spot on the leaderboard. 
+Disconnect is a mobile application designed to combat smart phone addiction and encourage users to engage with the world around them by gamifying the disconnection from one's phone. By creating an incentive system of rewards, points and badges, users will be encouraged use our application. 
 
 Technologies used:
-JAvaSCript, React Native, AWS RDS, AWS DynamoDB, AWS Lambda, CSS, HTML
+JavaScript, React Native, AWS RDS, AWS DynamoDB, AWS Lambda, CSS, HTML
