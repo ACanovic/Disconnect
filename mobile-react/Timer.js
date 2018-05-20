@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native';
+import Footer from './footer';
+
 
 export default class Timer extends React.Component {
 
@@ -9,6 +11,13 @@ export default class Timer extends React.Component {
         minutes: 0,
         hours: 0,
     }
+
+    static navigationOptions = {
+        headerStyle: {
+          display: 'none',
+        },
+    }
+
     componentDidMount(){
         this.interval = setInterval(this.increment, 1000)
     }
@@ -38,19 +47,28 @@ export default class Timer extends React.Component {
 
     render() {
         const {seconds, minutes, hours} = this.state
+        const { navigate } = this.props.navigation
         return (
-            <View>
+            <View style={styles.container}>
+            <View/>
             <Text style={styles.timer}>
                 {hours > 0 && (<Text>{hours}:</Text>)}
                 {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
             </Text>
-            <Button onPress={this.props.onConnect} title='Connect'/>
+            <Button onPress={this.props.navigation.getParam('onConnect')} title='Connect'/>
+            <Footer toBadges={() => navigate('Badges')} toBoard={() => navigate('Board')} navigate={this.props.navigate}/>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#9bda49',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      },
     timer: {
       fontSize: 90,
       color: '#5752f1',
