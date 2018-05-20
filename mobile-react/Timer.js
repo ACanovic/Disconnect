@@ -47,14 +47,16 @@ export default class Timer extends React.Component {
 
     render() {
         const {seconds, minutes, hours} = this.state
+        const { navigate } = this.props.navigation
         return (
             <View style={styles.container}>
+            <View/>
             <Text style={styles.timer}>
                 {hours > 0 && (<Text>{hours}:</Text>)}
                 {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
             </Text>
             <Button onPress={this.props.navigation.getParam('onConnect')} title='Connect'/>
-            <Footer />
+            <Footer toBadges={navigate('Badges')} toBoard={navigate('Board')} navigate={this.props.navigate}/>
             </View>
         )
     }
